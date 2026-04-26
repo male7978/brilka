@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brilka | იურიდიული სერვისი</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4F7FB;
+    --warm-white: #FFFFFF;
+    --brown-dark: #0F2244;
+    --brown-mid: #1A3A6E;
+    --brown-light: #2A5298;
+    --gold: #E8500A;
+    --gold-light: #FF7A3D;
+    --sage: #1A7F5A;
+    --text: #0F2244;
+    --text-light: #4A6080;
+    --border: #D8E4F0;
+    --shadow: rgba(15, 34, 68, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== LANGUAGE SWITCHER ===== */
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--brown-dark);
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: var(--brown-dark);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px var(--shadow);
+  }
+  .nav-inner {
+    background: white;
+    border-radius: 6px;
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #0F2244;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .logo-sub {
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 8px !important;
+    font-weight: 300 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    color: var(--gold) !important;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-left: auto;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--brown-dark);
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: white !important;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--brown-light) !important; color: white !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 40px 70px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF0EA;
+    border: 1px solid var(--gold-light);
+    color: var(--brown-light);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--brown-dark);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--brown-dark);
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual { position: relative; }
+  .hero-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 40px var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .hero-card h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .process-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 2px;
+  }
+  .step-text span { font-size: 13px; color: var(--text-light); }
+  .hero-tag {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--sage);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(122,140,110,0.3);
+  }
+
+  /* ===== SECTION ===== */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px;
+  }
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-light);
+    max-width: 560px;
+    margin-bottom: 50px;
+  }
+
+  /* ===== SERVICES ===== */
+  .section-services {
+    background: white;
+    padding: 70px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .section-services > div {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .service-card:hover {
+    background: white;
+    border-color: var(--gold-light);
+    box-shadow: 0 6px 30px var(--shadow);
+    transform: translateY(-3px);
+  }
+  .service-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+  }
+  .service-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+  .service-group-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+    display: block;
+  }
+  .service-note {
+    margin-top: 32px;
+    background: #FFF0EA;
+    border: 1px solid var(--gold-light);
+    border-radius: 12px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--brown-mid);
+  }
+
+  /* ===== COMPLAINTS ===== */
+  .complaints-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .complaint-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.25s;
+  }
+  .complaint-card:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .complaint-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin: 12px 0 10px;
+  }
+  .complaint-card ul { list-style: none; padding: 0; }
+  .complaint-card ul li {
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .complaint-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .how-bg { background: var(--brown-dark); padding: 70px 0; }
+  .how-bg > div { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .how-bg .section-label { color: var(--gold-light); }
+  .how-bg .section-title { color: white; }
+  .how-bg .section-sub { color: rgba(255,255,255,0.6); }
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .steps-row::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 14%;
+    right: 14%;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--brown-light));
+    z-index: 0;
+  }
+  .how-step { text-align: center; position: relative; z-index: 1; }
+  .how-num {
+    width: 56px;
+    height: 56px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(200,148,58,0.4);
+  }
+  .how-step h3 { font-size: 15px; font-weight: 600; color: white; margin-bottom: 8px; }
+  .how-step p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 16px;
+  }
+  .contact-info p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  .contact-methods { display: flex; flex-direction: column; gap: 14px; }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--brown-dark);
+    transition: all 0.2s;
+  }
+  .contact-method:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .contact-method-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--cream);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .contact-method strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .contact-method span { font-size: 13px; color: var(--text-light); }
+
+  .contact-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 4px 30px var(--shadow);
+  }
+  .contact-panel h3 { font-size: 18px; font-weight: 600; color: var(--brown-dark); margin-bottom: 6px; }
+  .contact-panel p { font-size: 14px; color: var(--text-light); margin-bottom: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brown-mid);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: white;
+  }
+  .form-submit {
+    width: 100%;
+    background: var(--brown-dark);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--brown-mid); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--brown-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 28px 40px;
+    font-size: 13px;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ===== CHAT WIDGET ===== */
+  .chat-widget { position: fixed; bottom: 28px; right: 28px; z-index: 999; }
+  .chat-btn {
+    width: 58px;
+    height: 58px;
+    background: var(--gold);
+    border: none;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(200,148,58,0.5);
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat-btn:hover { transform: scale(1.1); }
+  .chat-tooltip {
+    position: absolute;
+    right: 68px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--brown-dark);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .chat-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: var(--brown-dark);
+  }
+
+
+  /* ===== EXPANDABLE CARDS ===== */
+  .expandable-card { cursor: pointer; }
+  .expand-arrow {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.2s;
+  }
+  .expandable-card.open .expand-arrow { transform: rotate(180deg); content: '▴ დახურვა'; }
+  .expand-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+  }
+  .expandable-card.open .expand-content {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 12px;
+  }
+  .expand-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .expand-list li {
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+  .expand-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .expand-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sage);
+    background: rgba(26,127,90,0.08);
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* ===== FADE TAGLINE ===== */
+  .fade-tagline-wrap {
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  .fade-tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-light);
+    animation: fadeInOut 8s ease-in-out infinite;
+  }
+  @keyframes fadeInOut {
+    0%   { opacity: 0; }
+    20%  { opacity: 1; }
+    75%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content { animation: fadeUp 0.7s ease both; }
+  .hero-visual { animation: fadeUp 0.7s ease 0.15s both; }
+
+  /* ===== RESPONSIVE ===== */
+  /* ===== HAMBURGER MENU ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--brown-dark);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: white;
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--brown-dark);
+    text-decoration: none;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--brown-dark);
+  }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-row { grid-template-columns: repeat(2, 1fr); }
+    .steps-row::before { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    /* LANG BAR */
+    .lang-bar { padding: 8px 16px; }
+
+    /* HERO */
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 36px 20px 40px; }
+    .hero h1 { font-size: 32px; }
+    .hero-visual { display: none; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons a { text-align: center; justify-content: center; }
+
+    /* SECTIONS */
+    section { padding: 48px 20px; }
+    .section-title { font-size: 26px; }
+    .section-services > div { padding: 0 20px; }
+    .section-services { padding: 48px 0; }
+
+    /* SERVICES GRID */
+    .services-grid { grid-template-columns: 1fr; }
+    .service-group-title { font-size: 15px; }
+
+    /* PRICING */
+    #pricing > div { padding: 0 20px !important; }
+    #pricing [style*="grid-template-columns:repeat(4"] {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    #pricing [style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* HOW IT WORKS */
+    .how-bg > div { padding: 0 20px; }
+    .steps-row { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* CONTACT */
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-info h2 { font-size: 26px; }
+    .contact-panel { padding: 24px 20px; }
+
+    /* HERO TAG */
+    .hero-tag { display: none; }
+
+    /* CHAT WIDGET */
+    .chat-widget { bottom: 16px; right: 16px; }
+    .chat-tooltip { display: none; }
+
+    /* FOOTER */
+    footer { padding: 20px 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 26px; }
+    .section-title { font-size: 22px; }
+    .logo-text { font-size: 16px; letter-spacing: 3px; }
+    #pricing [style*="grid-template-columns:repeat(4"] {
+      grid-template-columns: 1fr !important;
+    }
+    .steps-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+  <a href="#" class="logo">
+    <div class="logo-badge">
+      <div class="logo-icon">
+        <!-- ბრილკა ლოგო: სიტყვა + ∞ სიმბოლო ერთიანად -->
+        <svg width="46" height="40" viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23,20 C20,15 14,11 9,11 C4,11 2,15 2,20 C2,25 4,29 9,29 C14,29 20,25 23,20 Z"
+                fill="none" stroke="#0F2244" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M23,20 C26,25 32,29 37,29 C42,29 44,25 44,20 C44,15 42,11 37,11 C32,11 26,15 23,20 Z"
+                fill="none" stroke="#E8500A" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text">BRILKA</div>
+        <div class="logo-sub">LEGAL CARE</div>
+      </div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services" data-i18n="nav-services">სერვისები</a></li>
+    <li><a href="#pricing" data-i18n="nav-pricing">მომსახურების ღირებულება</a></li>
+    <li><a href="#how" data-i18n="nav-how">როგორ ვმუშაობთ</a></li>
+    <li><a href="#contact" class="nav-cta" data-i18n="nav-contact">დაგვიკავშირდით</a></li>
+  </ul>
+  <div style="display:flex;gap:4px;align-items:center;border-left:1px solid var(--border);padding-left:10px;margin-left:10px;">
+    <button class="lang-btn active" onclick="setLang('ka')">ქარ</button>
+    <button class="lang-btn" onclick="setLang('ru')">Рус</button>
+    <button class="lang-btn" onclick="setLang('en')">ENG</button>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="მენიუ">
+    <span></span><span></span><span></span>
+  </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')" data-i18n="nav-services">სერვისები</a>
+  <a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open')" data-i18n="nav-pricing">მომსახურების ღირებულება</a>
+  <a href="#how" onclick="document.getElementById('mobileMenu').classList.remove('open')" data-i18n="nav-how">როგორ ვმუშაობთ</a>
+  <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')" style="color:var(--gold);font-weight:600;" data-i18n="nav-contact">დაგვიკავშირდით</a>
+</div>
+
+<!-- Hero -->
+<div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+  <div class="hero" style="padding:80px 0 70px;max-width:100%;">
+    <div class="hero-content">
+      <div class="hero-badge">🤝 <span data-i18n="badge">ვის ურეკავ, როცა იურისტი გჭირდება?</span></div>
+      <h1 data-i18n="h1">თუ არავინ გახსენდება — <span>ჩვენ აქ ვართ.</span></h1>
+      <p data-i18n="hero-p">იურისტებთან ურთიერთობა რთული გგონია? სხვა ენაზე გესაუბრებიან, გაუგებარი ტერმინებით — და მათთან ურთიერთობას არასდროს ისურვებდი?<br><br>ეს ჩვენზე არ ითქმის. ჩვენ გვინდა სხვა კუთხიდან დაგანახოთ იურისტები. ჩვენ "სხვა" იურისტები ვართ — იურისტები, რომლებიც არამარტო შენთვის გასაგებად საუბრობენ, არამედ შენთან მეგობრობის პრეტენზია აქვთ.</p>
+      <div class="fade-tagline-wrap">
+        <p class="fade-tagline" data-i18n="fade-line">პრობლემის გაზიარება — პრობლემის გაქრობისკენ გადადგმული პირველი ნაბიჯია</p>
+      </div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">✉️ <span data-i18n="cta1">შეკვეთის გაკეთება</span></a>
+        <a href="#services" class="btn-secondary" data-i18n="cta2">სერვისები →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <h3 data-i18n="card-title">🔄 სამუშაო პროცესი</h3>
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong data-i18n="s1-title">გვანდეთ თქვენი საქმე</strong>
+            <span data-i18n="s1-desc">ჩვენ ვმოქმედებთ იმ ინფორმაციის საფუძველზე, რასაც გაგვანდობთ — მოგვაწოდეთ მეილით, ტელეფონით ან ჩატით</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong data-i18n="s2-title">ელაპარაკეთ ჩვენს გუნდს</strong>
+            <span data-i18n="s2-desc">ჩვენ გვინდა თქვენი მოსმენა — თქვენს საქმეს არ მივანდობთ ჩატბოტს ან ხელოვნურ ინტელექტს</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong data-i18n="s3-title">დოკუმენტი მზადდება</strong>
+            <span data-i18n="s3-desc">საქართველოს კანონმდებლობის ბოლო ცვლილებების გათვალისწინებით</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <strong data-i18n="s4-title">გადახდა → მიღება</strong>
+            <span data-i18n="s4-desc">გადახდის შემდეგ დოკუმენტი გეგზავნებათ ელექტრონული ფოსტით ან ნებისმიერ სოციალურ ქსელში</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<div class="section-services" id="services">
+  <div>
+    <div class="section-label" data-i18n="sec1-label">📄 ჩვენი სერვისები</div>
+
+    <div class="service-group-title" data-i18n="grp1">ხელშეკრულებების მომზადება</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <h3 data-i18n="srv1">იჯარის ხელშეკრულება</h3>
+        <p data-i18n="srv1-d">უძრავი ქონების (ბინა, კომერციული ფართი) იჯარით გადაცემის სრულად გაწერილი ხელშეკრულება</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3 data-i18n="srv2">ქირავნობის ხელშეკრულება</h3>
+        <p data-i18n="srv2-d">მოძრავი ან უძრავი ნივთის დროებითი სარგებლობის სამართლებრივი დოკუმენტი</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💸</span>
+        <h3 data-i18n="srv3">ნასყიდობის ხელშეკრულება</h3>
+        <p data-i18n="srv3-d">ქონების ყიდვა-გაყიდვის ხელშეკრულება ყველა აუცილებელი პირობით</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤝</span>
+        <h3 data-i18n="srv4">მომსახურების ხელშეკრულება</h3>
+        <p data-i18n="srv4-d">ნებისმიერი ტიპის მომსახურების გაწევისთვის — მკაფიო ვალდებულებებით</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💰</span>
+        <h3 data-i18n="srv5">ვალის აღიარების ხელშეკრულება</h3>
+        <p data-i18n="srv5-d">სამართლებრივად ამყარებს ვალის არსებობას და უზრუნველყოფს დაბრუნების მექანიზმებს</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔄</span>
+        <h3 data-i18n="srv6">ვალის გადაკისრების ხელშეკრულება</h3>
+        <p data-i18n="srv6-d">ვალის მესამე პირზე გადაცემის სამართლებრივი ფორმა, სწორად გაფორმებული</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">👔</span>
+        <h3 data-i18n="srv7">შრომითი ხელშეკრულება</h3>
+        <p data-i18n="srv7-d">დამსაქმებელსა და დასაქმებულს შორის ურთიერთობის სამართლებრივი რეგულირება</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <h3 data-i18n="srv-construction">სამშენებლო ხელშეკრულება</h3>
+        <p data-i18n="srv-construction-d">სამშენებლო სამუშაოების შესრულებასთან დაკავშირებული სამართლებრივი ურთიერთობის სრულყოფილი დოკუმენტი</p>
+      </div>
+    </div>
+
+    <div class="service-group-title" style="margin-top:48px;" data-i18n="grp2">კორპორატიული მომსახურება</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏛️</span>
+        <h3 data-i18n="srv8">კორპორატიული დოკუმენტაციის მომზადება</h3>
+        <p data-i18n="srv8-d">წესდება, შინაგანაწესი, დებულებები და ბრძანებები</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <h3 data-i18n="srv9">სადაზღვევო პროდუქტების შერჩევა</h3>
+        <p data-i18n="srv9-d">ქონების ან/და ჯანმრთელობის დაზღვევისთვის შეგირჩევთ ოპტიმალურ სადაზღვევო კომპანიას შესაბამისი პროდუქტ(ებ)ით</p>
+      </div>
+    </div>
+
+    <div class="service-group-title" style="margin-top:48px;" data-i18n="grp3">საჩივრები</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🚔</span>
+        <h3 data-i18n="srv10">ადმინისტრაციული საჩივრები</h3>
+        <p data-i18n="srv10-d">უკანონო ჯარიმების გასაჩივრება, პარკირების ჯარიმები, ავტოსაგზაო შემთხვევებში ბრალეულობის გასაჩივრება</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛍️</span>
+        <h3 data-i18n="srv11">მომხმარებელთა უფლებები</h3>
+        <p data-i18n="srv11-d">სავაჭრო ობიექტების წინააღმდეგ, არასწორი თანხის გადახდევინება, ნივთის კანონიერად უკან მიღება</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3 data-i18n="srv12">კერძო კომპანიები</h3>
+        <p data-i18n="srv12-d">ურთიერთობა ელექტრომომარაგების, წყალმომარაგების, გაზისა და ინტერნეტ პროვაიდერებთან</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <h3 data-i18n="srv13">მომხმარებელთა ინტერესების დაცვა</h3>
+        <p data-i18n="srv13-d">საგარანტიო პირობების შესაბამისად — თქვენი უფლებები სრულად დაცული</p>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;background:var(--brown-dark);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:28px;">💬</span>
+      <p style="color:white;font-size:15px;margin:0;" data-i18n="srv-extra">ამ სერვისების გარდა, ჩვენ უამრავ სხვა საკითხში შეგვიძლია დაგეხმაროთ. <strong style="color:var(--gold-light);">თქვენ უბრალოდ — იკითხეთ.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing -->
+<section id="pricing" style="background:white;padding:70px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div class="section-label" data-i18n="price-label">💰 მომსახურების ღირებულება</div>
+    <div class="section-title" data-i18n="price-title">მომსახურების ღირებულება</div>
+    
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">📄</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p1-title">მარტივი ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">50 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;" data-i18n="price-p1-desc">სტანდარტული პირობები, სწრაფი შესრულება</div>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">📋</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p2-title">საშ. სირთულის ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">200 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;" data-i18n="price-p2-desc">ინდივიდუალური პირობები, დეტალური მომზადება</div>
+      </div>
+      <div style="border:2px solid var(--gold);border-radius:20px;padding:28px 24px;text-align:center;position:relative;box-shadow:0 6px 30px rgba(232,80,10,0.12);">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:white;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;" data-i18n="price-popular">ყველაზე მოთხოვნადი</div>
+        <div style="font-size:32px;margin-bottom:12px;">⚖️</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p3-title">რთული ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">300 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;" data-i18n="price-p3-desc">რთული სტრუქტურა, სრული სამართლებრივი დაცვა</div>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">🚔</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p4-title">საჩივარი</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">100 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;" data-i18n="price-p4-desc">ადმინისტრაციული და კერძო საჩივრები</div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">🏛️</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p5-title">კორპორატიული დოკუმენტაცია</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">250 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;" data-i18n="price-p5-desc">წესდება, შინაგანაწესი, დებულებები და ბრძანებები</div>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">🛡️</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;" data-i18n="price-p6-title">სადაზღვევო პროდუქტების შერჩევა</div>
+        <div style="font-size:28px;font-weight:700;color:var(--brown-dark);">400 ₾<span style="font-size:14px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:12px;color:var(--text-light);margin-top:6px;" data-i18n="price-legal">იურიდიული პირებისთვის</div>
+        <div style="font-size:28px;font-weight:700;color:var(--brown-dark);margin-top:8px;">100 ₾<span style="font-size:14px;font-weight:400;color:var(--text-light);" data-i18n="price-from">-დან</span></div>
+        <div style="font-size:12px;color:var(--text-light);margin-top:6px;" data-i18n="price-physical">ფიზიკური პირებისთვის</div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span style="font-size:32px;">🧭</span>
+        <div>
+          <strong style="font-size:16px;color:var(--brown-dark);" data-i18n="price-consult-title">პირველადი კონსულტაცია — <span style="color:var(--sage);">უფასო</span></strong>
+          <p style="font-size:13px;color:var(--text-light);margin-top:4px;" data-i18n="price-consult-desc">ჩვენ გისმენთ. მოგვიყევი რა ხდება — დანარჩენს ჩვენ გავაკეთებთ.</p>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;" data-i18n="price-consult-btn">კონსულტაციის დაჯავშნა →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- How it works -->
+<div class="how-bg" id="how">
+  <div>
+    <div class="section-label" data-i18n="sec3-label">⚡ პროცესი</div>
+    <div class="section-title" data-i18n="sec3-title">როგორ ვმუშაობთ</div>
+    <div class="section-sub" data-i18n="sec3-sub">კლიენტი ყოველთვის ესაუბრება ადამიანს — არა ბოტს, არა ხელოვნურ ინტელექტს</div>
+    <div class="steps-row">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3 data-i18n="h1t">გამოგვიგზავნეთ</h3>
+        <p data-i18n="h1d">ინფორმაცია მეილით, ტელეფონით ან საიტის ჩატით</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3 data-i18n="h2t">სპეციალისტი პასუხობს</h3>
+        <p data-i18n="h2d">ჩვენი გუნდის წევრი ინიშნავს და ამუშავებს მონაცემებს</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3 data-i18n="h3t">იურისტი ამზადებს</h3>
+        <p data-i18n="h3d">გამართული დოკუმენტი კანონმდებლობის სრული დაცვით</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3 data-i18n="h4t">მიიღეთ დოკუმენტი</h3>
+        <p data-i18n="h4d">გადახდის შემდეგ დოკუმენტი გეგზავნებათ პირდაპირ</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2 data-i18n="cont-title">დაგვიკავშირდით</h2>
+      <p data-i18n="cont-p">გამოგვიგზავნეთ ინფორმაცია თქვენი სასურველი მეთოდით — ჩვენი სპეციალისტი მოგვაბრუნდება სწრაფად.</p>
+      <div class="contact-methods">
+        <a href="mailto:info@example.ge" class="contact-method">
+          <div class="contact-method-icon">✉️</div>
+          <div>
+            <strong data-i18n="m1">ელ. ფოსტა</strong>
+            <span>info@example.ge</span>
+          </div>
+        </a>
+        <a href="tel:+995555000000" class="contact-method">
+          <div class="contact-method-icon">📞</div>
+          <div>
+            <strong data-i18n="m2">ტელეფონი</strong>
+            <span>+995 555 000 000</span>
+          </div>
+        </a>
+        <a href="#" class="contact-method">
+          <div class="contact-method-icon">💬</div>
+          <div>
+            <strong data-i18n="m3">ჩატი საიტზე</strong>
+            <span data-i18n="m3-d">სწრაფი კომუნიკაცია ადამიანთან</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-panel">
+      <h3 data-i18n="form-title">შეკვეთის გაკეთება</h3>
+      <p data-i18n="form-sub">შეავსეთ ფორმა — გიპასუხებთ მალე</p>
+      <div class="form-group">
+        <label data-i18n="f1">სახელი და გვარი</label>
+        <input type="text" placeholder="გიორგი მამულაძე">
+      </div>
+      <div class="form-group">
+        <label data-i18n="f2">ტელეფონი ან მეილი</label>
+        <input type="text" placeholder="+995 5XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label data-i18n="f3">სერვისის ტიპი</label>
+        <select>
+          <option data-i18n="fopt0">— აირჩიეთ —</option>
+          <optgroup label="ხელშეკრულებები" data-i18n-label="fgrp1">
+            <option data-i18n="fopt1">იჯარის ხელშეკრულება</option>
+            <option data-i18n="fopt2">ქირავნობის ხელშეკრულება</option>
+            <option data-i18n="fopt3">ნასყიდობის ხელშეკრულება</option>
+            <option data-i18n="fopt4">მომსახურების ხელშეკრულება</option>
+            <option data-i18n="fopt5">ვალის აღიარების ხელშეკრულება</option>
+            <option data-i18n="fopt5b">ვალის გადაკისრების ხელშეკრულება</option>
+            <option data-i18n="fopt6">შრომითი ხელშეკრულება</option>
+          </optgroup>
+          <optgroup label="კორპორატიული მომსახურება" data-i18n-label="fgrp2">
+            <option data-i18n="fopt9">კორპორატიული დოკუმენტაციის მომზადება</option>
+            <option data-i18n="fopt10">სადაზღვევო პროდუქტების შერჩევა</option>
+          </optgroup>
+          <optgroup label="საჩივრები" data-i18n-label="fgrp3">
+            <option data-i18n="fopt7">ადმინისტრაციული საჩივარი</option>
+            <option data-i18n="fopt7b">მომხმარებელთა უფლებების დაცვა</option>
+            <option data-i18n="fopt7c">კერძო კომპანიის წინააღმდეგ საჩივარი</option>
+            <option data-i18n="fopt7d">საგარანტიო პირობების შესაბამისად</option>
+          </optgroup>
+          <option data-i18n="fopt8">კონსულტაცია (უფასო)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="f4">მოკლე აღწერა</label>
+        <textarea rows="3" placeholder="მოგვიყევით დეტალები..."></textarea>
+      </div>
+      <button class="form-submit" id="submitBtn" data-i18n="f-btn" onclick="submitForm()">გაგზავნა →</button>
+      <div id="form-msg" style="margin-top:12px;font-size:14px;text-align:center;display:none;"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+async function submitForm() {
+  const btn = document.getElementById("submitBtn");
+  const msg = document.getElementById("form-msg");
+  const name = document.querySelector("input[type='text']").value;
+  const contact = document.querySelectorAll("input[type='text']")[1].value;
+  const service = document.querySelector("select").value;
+  const description = document.querySelector("textarea").value;
+  if (!name || !contact) {
+    msg.style.display = "block";
+    msg.style.color = "#E8500A";
+    msg.textContent = "გთხოვთ შეავსოთ სახელი და კონტაქტი";
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "იგზავნება...";
+  msg.style.display = "none";
+  try {
+      const res = await fetch("https://brilka.onrender.com/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, contact, service, description })
+    });
+    const data = await res.json();
+    if (data.success) {
+      msg.style.display = "block";
+      msg.style.color = "#1A7F5A";
+      msg.textContent = "✓ შეტყობინება გაიგზავნა! მალე დაგიკავშირდებით.";
+      btn.textContent = "გაგზავნილია ✓";
+    } else { throw new Error(data.error); }
+  } catch (e) {
+    msg.style.display = "block";
+    msg.style.color = "#E8500A";
+    msg.textContent = "შეცდომა — სცადეთ თავიდან ან დაგვიკავშირდით პირდაპირ";
+    btn.disabled = false;
+    btn.textContent = "გაგზავნა →";
+  }
+}
+</script>
+
+<!-- Footer -->
+<footer style="background:var(--brown-dark);color:rgba(255,255,255,0.6);padding:36px 40px;text-align:center;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <!-- Logo -->
+    <div style="margin-bottom:20px;display:flex;align-items:center;justify-content:center;">
+      <div style="background:white;border-radius:8px;padding:8px 20px 8px 12px;display:inline-flex;align-items:center;gap:10px;">
+        <svg width="36" height="32" viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23,20 C20,15 14,11 9,11 C4,11 2,15 2,20 C2,25 4,29 9,29 C14,29 20,25 23,20 Z" fill="none" stroke="#0F2244" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M23,20 C26,25 32,29 37,29 C42,29 44,25 44,20 C44,15 42,11 37,11 C32,11 26,15 23,20 Z" fill="none" stroke="#E8500A" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:18px;letter-spacing:5px;color:var(--brown-dark);font-weight:700;">BRILKA</div>
+          <div style="font-size:8px;letter-spacing:3px;color:var(--gold);font-family:'Josefin Sans',sans-serif;">LEGAL CARE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Working hours -->
+    <div style="margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;">
+      <span style="font-size:18px;">🕐</span>
+      <span style="color:white;font-size:14px;" data-i18n="hours-label">სამუშაო საათები:</span>
+      <span style="color:var(--gold-light);font-weight:600;font-size:14px;">09:00 – 21:00</span>
+      <span style="color:rgba(255,255,255,0.4);font-size:13px;" data-i18n="hours-days">ყოველდღე</span>
+    </div>
+
+    <!-- Social media -->
+    <div style="margin-bottom:24px;">
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:12px;" data-i18n="social-label">გვიპოვეთ სოციალურ ქსელში</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
+        <a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:30px;transition:all 0.2s;" onmouseover="this.style.background='rgba(232,80,10,0.3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.15)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span style="color:white;font-size:13px;font-weight:500;">Instagram</span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:8px;text-decoration:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:30px;transition:all 0.2s;" onmouseover="this.style.background='rgba(232,80,10,0.3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.15)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          <span style="color:white;font-size:13px;font-weight:500;">Facebook</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-size:12px;">
+      <strong style="color:var(--gold-light);">Brilka</strong> · <span data-i18n="foot">ყველა უფლება დაცულია</span> · 2026
+    </div>
+  </div>
+</footer>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+  <div class="chat-tooltip" data-i18n="chat-tip">ჩატი</div>
+  <button class="chat-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">💬</button>
+</div>
+
+<script>
+const translations = {
+  ka: {
+    'logo': 'Brilka', 'logo-sub': 'იურიდიული დახმარება',
+    'nav-services': 'სერვისები', 'nav-complaints': 'საჩივრები', 'nav-pricing': 'მომსახურების ღირებულება',
+    'nav-how': 'როგორ ვმუშაობთ', 'nav-contact': 'დაგვიკავშირდით',
+    'badge': 'ვის ურეკავ, როცა იურისტი გჭირდება?', 'fade-line': 'პრობლემის გაზიარება — პრობლემის გაქრობისკენ გადადგმული პირველი ნაბიჯია',
+    'h1': 'თუ არავინ გახსენდება — <span>ჩვენ აქ ვართ.</span>',
+    'hero-p': 'იურისტებთან ურთიერთობა რთული გგონია? სხვა ენაზე გესაუბრებიან, გაუგებარი ტერმინებით — და მათთან ურთიერთობას არასდროს ისურვებდი?<br><br>ეს ჩვენზე არ ითქმის. ჩვენ გვინდა სხვა კუთხიდან დაგანახოთ იურისტები. ჩვენ "სხვა" იურისტები ვართ — იურისტები, რომლებიც არამარტო შენთვის გასაგებად საუბრობენ, არამედ შენთან მეგობრობის პრეტენზია აქვთ.',
+    'cta1': 'შეკვეთის გაკეთება', 'cta2': 'სერვისები →',
+    'card-title': '🔄 სამუშაო პროცესი',
+    's1-title': 'გვანდეთ თქვენი საქმე', 's1-desc': 'ჩვენ ვმოქმედებთ იმ ინფორმაციის საფუძველზე, რასაც გაგვანდობთ — მოგვაწოდეთ მეილით, ტელეფონით ან ჩატით',
+    's2-title': 'ელაპარაკეთ ჩვენს გუნდს', 's2-desc': 'ჩვენ გვინდა თქვენი მოსმენა — თქვენს საქმეს არ მივანდობთ ჩატბოტს ან ხელოვნურ ინტელექტს',
+    's3-title': 'დოკუმენტი მზადდება', 's3-desc': 'საქართველოს კანონმდებლობის ბოლო ცვლილებების გათვალისწინებით',
+    's4-title': 'გადახდა → მიღება', 's4-desc': 'გადახდის შემდეგ დოკუმენტი გეგზავნებათ ელექტრონული ფოსტით ან ნებისმიერ სოციალურ ქსელში',
+    'hero-tag': 'მოქმედი კანონმდებლობის შესაბამისად',
+    'sec1-label': '📄 ჩვენი სერვისები', 'sec1-title': 'ხელშეკრულებების მომზადება',
+    'sec1-sub': 'ყველა ხელშეკრულება მზადდება მოქმედი კანონმდებლობის და უახლესი ცვლილებების გათვალისწინებით',
+    'grp1': 'ხელშეკრულებების მომზადება', 'grp2': 'კორპორატიული მომსახურება', 'grp3': 'საჩივრები',
+    'srv1': 'იჯარის ხელშეკრულება', 'srv1-d': 'უძრავი ქონების (ბინა, კომერციული ფართი) იჯარით გადაცემის სრულად გაწერილი ხელშეკრულება',
+    'srv2': 'ქირავნობის ხელშეკრულება', 'srv2-d': 'მოძრავი ან უძრავი ნივთის დროებითი სარგებლობის სამართლებრივი დოკუმენტი',
+    'srv3': 'ნასყიდობის ხელშეკრულება', 'srv3-d': 'ქონების ყიდვა-გაყიდვის ხელშეკრულება ყველა აუცილებელი პირობით',
+    'srv4': 'მომსახურების ხელშეკრულება', 'srv4-d': 'ნებისმიერი ტიპის მომსახურების გაწევისთვის — მკაფიო ვალდებულებებით',
+    'srv5': 'ვალის აღიარების ხელშეკრულება', 'srv5-d': 'სამართლებრივად ამყარებს ვალის არსებობას და უზრუნველყოფს დაბრუნების მექანიზმებს',
+    'srv6': 'ვალის გადაკისრების ხელშეკრულება', 'srv6-d': 'ვალის მესამე პირზე გადაცემის სამართლებრივი ფორმა, სწორად გაფორმებული',
+    'srv7': 'შრომითი ხელშეკრულება', 'srv7-d': 'დამსაქმებელსა და დასაქმებულს შორის ურთიერთობის სამართლებრივი რეგულირება',
+    'srv8': 'კორპორატიული დოკუმენტაციის მომზადება', 'srv8-d': 'წესდება, შინაგანაწესი, დებულებები და ბრძანებები',
+    'srv9': 'სადაზღვევო პროდუქტების შერჩევა', 'srv9-d': 'ქონების ან/და ჯანმრთელობის დაზღვევისთვის შეგირჩევთ ოპტიმალურ სადაზღვევო კომპანიას შესაბამისი პროდუქტ(ებ)ით',
+    'srv10': 'ადმინისტრაციული საჩივრები', 'srv10-d': 'უკანონო ჯარიმების გასაჩივრება, პარკირების ჯარიმები, ავტოსაგზაო შემთხვევებში ბრალეულობის გასაჩივრება',
+    'srv11': 'მომხმარებელთა უფლებები', 'srv11-d': 'სავაჭრო ობიექტების წინააღმდეგ, არასწორი თანხის გადახდევინება, ნივთის კანონიერად უკან მიღება',
+    'srv12': 'კერძო კომპანიები', 'srv12-d': 'ურთიერთობა ელექტრომომარაგების, წყალმომარაგების, გაზისა და ინტერნეტ პროვაიდერებთან',
+    'srv13': 'მომხმარებელთა ინტერესების დაცვა', 'srv13-d': 'საგარანტიო პირობების შესაბამისად — თქვენი უფლებები სრულად დაცული',
+    'srv-extra': 'ამ სერვისების გარდა, ჩვენ უამრავ სხვა საკითხში შეგვიძლია დაგეხმაროთ. <strong style="color:var(--gold-light);">თქვენ უბრალოდ — იკითხეთ.</strong>',
+    'srv-note': 'ყველა ხელშეკრულება მზადდება <strong>მოქმედი კანონმდებლობის</strong> და <strong>უახლესი ცვლილებების</strong> სრული გათვალისწინებით და მორგებულია თქვენს კონკრეტულ მოთხოვნებზე.',
+    'sec2-label': '⚖️ საჩივრები', 'sec2-title': 'საჩივრების მომზადება',
+    'sec2-sub': 'ვიმოქმედებთ თქვენს ნაცვლად — ვამზადებთ საჩივარს, ვწერთ ინსტრუქციას, სურვილის შემთხვევაში ვწარვადგენთ',
+    'c1': 'ადმინისტრაციული საჩივრები', 'c1-1': 'უკანონო ჯარიმების გასაჩივრება (შსს, მერია)', 'c1-2': 'პარკირების ჯარიმები', 'c1-3': 'ავტოსაგზაო შემთხვევებში ბრალეულობის გასაჩივრება',
+    'c2': 'მომხმარებელთა უფლებები', 'c2-1': 'სავაჭრო ობიექტების წინააღმდეგ', 'c2-2': 'არასწორი თანხის გადახდევინება', 'c2-3': 'ნივთის კანონიერად უკან მიღება',
+    'c3': 'კერძო კომპანიები', 'c3-last': 'თბილისი ენერჯი და სხვა',
+    'consult-title': 'იურიდიული კონსულტაცია', 'consult-desc': 'დამატებით გთავაზობთ პრაქტიკულ იურიდიულ კონსულტაციას — სწორად დაგეგმოთ შემდგომი ნაბიჯები და თავიდან აიცილოთ რისკები',
+    'sec3-label': '⚡ პროცესი', 'sec3-title': 'როგორ ვმუშაობთ', 'sec3-sub': 'თქვენს საქმეს ყოველთვის ადამიანი ისმენს — ჩატბოტი ან ხელოვნური ინტელექტი ჩვენთან არ გიპასუხებთ',
+    'h1t': 'გვანდეთ', 'h1d': 'ინფორმაცია მეილით, ტელეფონით ან საიტის ჩატით',
+    'h2t': 'ჩვენი გუნდი გისმენს', 'h2d': 'პირდაპირ ადამიანთან — ჩატბოტის გარეშე',
+    'h3t': 'იურისტი ამზადებს', 'h3d': 'გამართული დოკუმენტი კანონმდებლობის სრული დაცვით',
+    'h4t': 'მიიღეთ დოკუმენტი', 'h4d': 'გადახდის შემდეგ დოკუმენტი გეგზავნებათ პირდაპირ',
+    'cont-title': 'დაგვიკავშირდით', 'cont-p': 'გამოგვიგზავნეთ ინფორმაცია თქვენი სასურველი მეთოდით — ჩვენი სპეციალისტი მოგვაბრუნდება სწრაფად.',
+    'm1': 'ელ. ფოსტა', 'm2': 'ტელეფონი', 'm3': 'ჩატი საიტზე', 'm3-d': 'სწრაფი კომუნიკაცია ადამიანთან',
+    'form-title': 'შეკვეთის გაკეთება', 'form-sub': 'შეავსეთ ფორმა — გიპასუხებთ მალე',
+    'f1': 'სახელი და გვარი', 'f2': 'ტელეფონი ან მეილი', 'f3': 'სერვისის ტიპი', 'f4': 'მოკლე აღწერა', 'f-btn': 'გაგზავნა →',
+    'fopt0': '— აირჩიეთ —',
+    'fgrp1': 'ხელშეკრულებები', 'fgrp2': 'კორპორატიული მომსახურება', 'fgrp3': 'საჩივრები',
+    'fopt1': 'იჯარის ხელშეკრულება', 'fopt2': 'ქირავნობის ხელშეკრულება', 'fopt3': 'ნასყიდობის ხელშეკრულება', 'fopt4': 'მომსახურების ხელშეკრულება', 'fopt5': 'ვალის აღიარების ხელშეკრულება', 'fopt5b': 'ვალის გადაკისრების ხელშეკრულება', 'fopt6': 'შრომითი ხელშეკრულება',
+    'fopt9': 'კორპორატიული დოკუმენტაციის მომზადება', 'fopt10': 'სადაზღვევო პროდუქტების შერჩევა',
+    'fopt7': 'ადმინისტრაციული საჩივარი', 'fopt7b': 'მომხმარებელთა უფლებების დაცვა', 'fopt7c': 'კერძო კომპანიის წინააღმდეგ საჩივარი', 'fopt7d': 'საგარანტიო პირობების შესაბამისად',
+    'fopt8': 'კონსულტაცია (უფასო)',
+    'foot': 'ყველა უფლება დაცულია', 'chat-tip': 'ჩატი',
+    'hours-label': 'სამუშაო საათები:', 'hours-days': 'ყოველდღე',
+    'social-label': 'გვიპოვეთ სოციალურ ქსელში',
+    'expand-open': '▴ დახურვა', 'expand-close': '▾ დეტალები',
+    'price-label': '💰 მომსახურების ღირებულება', 'price-title': 'მომსახურების ღირებულება',
+    'price-from': '-დან', 'price-popular': 'ყველაზე მოთხოვნადი',
+    'price-p1-title': 'მარტივი ხელშეკრულება', 'price-p1-desc': 'სტანდარტული პირობები, სწრაფი შესრულება',
+    'price-p2-title': 'საშ. სირთულის ხელშეკრულება', 'price-p2-desc': 'ინდივიდუალური პირობები, დეტალური მომზადება',
+    'price-p3-title': 'რთული ხელშეკრულება', 'price-p3-desc': 'რთული სტრუქტურა, სრული სამართლებრივი დაცვა',
+    'price-p4-title': 'საჩივარი', 'price-p4-desc': 'ადმინისტრაციული და კერძო საჩივრები',
+    'price-p5-title': 'კორპორატიული დოკუმენტაცია', 'price-p5-desc': 'წესდება, შინაგანაწესი, დებულებები და ბრძანებები',
+    'price-p6-title': 'სადაზღვევო პროდუქტების შერჩევა',
+    'price-legal': 'იურიდიული პირებისთვის', 'price-physical': 'ფიზიკური პირებისთვის',
+    'price-consult-title': 'პირველადი კონსულტაცია — <span style="color:var(--sage);">უფასო</span>',
+    'price-consult-desc': 'ჩვენ გისმენთ. მოგვიყევი რა ხდება — დანარჩენს ჩვენ გავაკეთებთ.',
+    'price-consult-btn': 'კონსულტაციის დაჯავშნა →'
+  },
+  ru: {
+    'logo': 'Brilka', 'logo-sub': 'Юридическая помощь',
+    'nav-services': 'Услуги', 'nav-complaints': 'Жалобы', 'nav-how': 'Как мы работаем', 'nav-contact': 'Связаться',
+    'nav-pricing': 'Стоимость услуг',
+    'badge': 'Кому вы звоните, когда нужен юрист?', 'fade-line': 'Поделиться проблемой — это первый шаг к её исчезновению',
+    'h1': 'Если никто не вспоминается — <span>мы здесь.</span>',
+    'hero-p': 'Общение с юристами кажется сложным? Говорят на другом языке, непонятными терминами — и вы бы никогда не захотели с ними иметь дело?<br><br>Это не про нас. Мы хотим показать вам юристов с другой стороны. Мы "другие" юристы — те, кто не только говорит понятно, но и претендует на настоящую дружбу с вами.',
+    'cta1': 'Оставить заявку', 'cta2': 'Услуги →',
+    'card-title': '🔄 Как мы работаем',
+    's1-title': 'Доверьте нам своё дело', 's1-desc': 'Мы действуем на основе информации, которую вы нам доверяете — по почте, телефону или в чате',
+    's2-title': 'Говорите с нашей командой', 's2-desc': 'Мы хотим вас выслушать — ваше дело не доверим чат-боту или ИИ',
+    's3-title': 'Документ готовится', 's3-desc': 'С учётом последних изменений в законодательстве Грузии',
+    's4-title': 'Оплата → Получение', 's4-desc': 'После оплаты документ отправляется вам на email или в любую социальную сеть',
+    'hero-tag': 'В соответствии с действующим законодательством',
+    'sec1-label': '📄 Наши услуги', 'sec1-title': 'Подготовка договоров',
+    'sec1-sub': 'Все договоры готовятся с учётом действующего законодательства и последних изменений',
+    'grp1': 'Подготовка договоров', 'grp2': 'Корпоративные услуги', 'grp3': 'Жалобы',
+    'srv1': 'Договор аренды (недвижимость)', 'srv1-d': 'Договор аренды квартиры или коммерческой площади с детально прописанными условиями',
+    'srv2': 'Договор найма', 'srv2-d': 'Правовой документ для временного пользования движимым или недвижимым имуществом',
+    'srv3': 'Договор купли-продажи', 'srv3-d': 'Договор купли-продажи имущества со всеми необходимыми условиями',
+    'srv4': 'Договор оказания услуг', 'srv4-d': 'Для любого типа услуг — с чёткими обязательствами и ответственностью сторон',
+    'srv5': 'Договор признания долга', 'srv5-d': 'Юридически закрепляет существование долга и обеспечивает механизм его возврата',
+    'srv6': 'Договор перевода долга', 'srv6-d': 'Правовая форма передачи долга третьему лицу, оформленная корректно',
+    'srv7': 'Трудовой договор', 'srv7-d': 'Правовое регулирование отношений между работодателем и работником',
+    'srv-construction': 'Договор строительного подряда', 'srv-construction-d': 'Правовой документ для выполнения строительных работ с полным описанием обязательств сторон',
+    'srv8': 'Подготовка корпоративной документации', 'srv8-d': 'Устав, внутренний регламент, положения и приказы',
+    'srv9': 'Подбор страховых продуктов', 'srv9-d': 'Для страхования имущества и/или здоровья подберём оптимальную страховую компанию с подходящими продуктами',
+    'srv10': 'Административные жалобы', 'srv10-d': 'Обжалование незаконных штрафов, штрафы за парковку, обжалование вины в ДТП',
+    'srv11': 'Защита прав потребителей', 'srv11-d': 'Против торговых объектов, незаконное списание средств, возврат товара по закону',
+    'srv12': 'Частные компании', 'srv12-d': 'Споры с поставщиками электроэнергии, водоснабжения, газа и интернет-провайдерами',
+    'srv13': 'Защита интересов потребителей', 'srv13-d': 'В соответствии с гарантийными условиями — ваши права под полной защитой',
+    'srv-extra': 'Помимо этих услуг, мы можем помочь вам во многих других вопросах. <strong style="color:var(--gold-light);">Просто спросите.</strong>',
+    'srv-note': 'Все договоры готовятся с полным учётом <strong>действующего законодательства</strong> и <strong>последних изменений</strong>, и адаптированы к вашим конкретным требованиям.',
+    'sec2-label': '⚖️ Жалобы', 'sec2-title': 'Подготовка жалоб',
+    'sec2-sub': 'Действуем вместо вас — готовим жалобу, пишем инструкцию, при желании подаём сами',
+    'c1': 'Административные жалобы', 'c1-1': 'Обжалование незаконных штрафов (МВД, мэрия)', 'c1-2': 'Штрафы за парковку', 'c1-3': 'Обжалование вины в ДТП',
+    'c2': 'Защита прав потребителей', 'c2-1': 'Против торговых объектов', 'c2-2': 'Незаконное списание средств', 'c2-3': 'Возврат товара по закону',
+    'c3': 'Частные компании', 'c3-last': 'Тбилиси Энерджи и другие',
+    'consult-title': 'Юридическая консультация', 'consult-desc': 'Предлагаем практическую юридическую консультацию — правильно спланируйте следующие шаги и избегите рисков',
+    'sec3-label': '⚡ Процесс', 'sec3-title': 'Как мы работаем', 'sec3-sub': 'С вашим делом всегда работает живой человек — чат-бот или ИИ вам не ответит',
+    'h1t': 'Доверьте нам', 'h1d': 'Информацию по почте, телефону или чату на сайте',
+    'h2t': 'Наша команда слушает', 'h2d': 'Напрямую с человеком — без чат-ботов',
+    'h3t': 'Юрист готовит документ', 'h3d': 'Грамотный документ с полным соблюдением законодательства',
+    'h4t': 'Получите документ', 'h4d': 'После оплаты документ отправляется на email или в любую социальную сеть',
+    'cont-title': 'Свяжитесь с нами', 'cont-p': 'Отправьте информацию удобным для вас способом — наш специалист ответит быстро.',
+    'm1': 'Эл. почта', 'm2': 'Телефон', 'm3': 'Чат на сайте', 'm3-d': 'Быстрая связь с живым человеком',
+    'form-title': 'Оставить заявку', 'form-sub': 'Заполните форму — ответим скоро',
+    'f1': 'Имя и фамилия', 'f2': 'Телефон или email', 'f3': 'Тип услуги', 'f4': 'Краткое описание', 'f-btn': 'Отправить →',
+    'fopt0': '— Выберите —',
+    'fgrp1': 'Договоры', 'fgrp2': 'Корпоративные услуги', 'fgrp3': 'Жалобы',
+    'fopt1': 'Договор аренды', 'fopt2': 'Договор найма', 'fopt3': 'Купли-продажа', 'fopt4': 'Оказание услуг',
+    'fopt5': 'Признание долга', 'fopt5b': 'Перевод долга', 'fopt6': 'Трудовой договор',
+    'fopt-construction': 'Договор строительного подряда',
+    'fopt9': 'Корпоративная документация', 'fopt10': 'Подбор страховых продуктов',
+    'fopt7': 'Административная жалоба', 'fopt7b': 'Защита прав потребителей', 'fopt7c': 'Жалоба против частной компании', 'fopt7d': 'По гарантийным условиям',
+    'fopt8': 'Консультация (бесплатно)',
+    'foot': 'Все права защищены', 'chat-tip': 'Чат с человеком',
+    'hours-label': 'Часы работы:', 'hours-days': 'Ежедневно',
+    'social-label': 'Найдите нас в социальных сетях',
+    'expand-open': '▴ Закрыть', 'expand-close': '▾ Подробнее',
+    'price-label': '💰 Стоимость услуг', 'price-title': 'Стоимость услуг',
+    'price-from': ' от', 'price-popular': 'Самый популярный',
+    'price-p1-title': 'Простой договор', 'price-p1-desc': 'Стандартные условия, быстрое исполнение',
+    'price-p2-title': 'Договор средней сложности', 'price-p2-desc': 'Индивидуальные условия, детальная подготовка',
+    'price-p3-title': 'Сложный договор', 'price-p3-desc': 'Сложная структура, полная правовая защита',
+    'price-p4-title': 'Жалоба', 'price-p4-desc': 'Административные и частные жалобы',
+    'price-p5-title': 'Корпоративная документация', 'price-p5-desc': 'Устав, внутренний регламент, положения и приказы',
+    'price-p6-title': 'Подбор страховых продуктов',
+    'price-legal': 'Для юридических лиц', 'price-physical': 'Для физических лиц',
+    'price-consult-title': 'Первичная консультация — <span style="color:var(--sage);">бесплатно</span>',
+    'price-consult-desc': 'Мы слушаем. Расскажите, что происходит — остальное мы возьмём на себя.',
+    'price-consult-btn': 'Записаться на консультацию →'
+  },
+  en: {
+    'logo': 'Brilka', 'logo-sub': 'Legal Assistance',
+    'nav-services': 'Services', 'nav-complaints': 'Complaints', 'nav-how': 'How We Work', 'nav-contact': 'Contact Us',
+    'nav-pricing': 'Pricing',
+    'badge': 'Who do you call when you need a lawyer?', 'fade-line': 'Sharing your problem is the first step toward making it disappear',
+    'h1': 'If no one comes to mind — <span>we\'re here.</span>',
+    'hero-p': 'Does dealing with lawyers feel difficult? They speak a different language, full of confusing terms — and you\'d never choose to deal with them if you could avoid it?<br><br>That\'s not us. We want to show you lawyers from a completely different angle. We\'re "different" lawyers — ones who not only speak in a way you understand, but who genuinely want to be your friends.',
+    'cta1': 'Make a Request', 'cta2': 'Our Services →',
+    'card-title': '🔄 How It Works',
+    's1-title': 'Trust us with your case', 's1-desc': 'We act on the information you share with us — via email, phone or chat',
+    's2-title': 'Talk to our team', 's2-desc': 'We want to listen — your case will never be handled by a chatbot or AI',
+    's3-title': 'Document is prepared', 's3-desc': 'Taking into account the latest changes in Georgian legislation',
+    's4-title': 'Pay → Receive', 's4-desc': 'After payment, your document is sent via email or any social platform you prefer',
+    'hero-tag': 'Per current Georgian legislation',
+    'sec1-label': '📄 Our Services', 'sec1-title': 'Contract Preparation',
+    'sec1-sub': 'All contracts are prepared in accordance with current legislation and the latest amendments',
+    'grp1': 'Contract Preparation', 'grp2': 'Corporate Services', 'grp3': 'Complaints',
+    'srv1': 'Lease Agreement', 'srv1-d': 'Rental agreement for property (apartment, commercial space) with fully detailed conditions',
+    'srv2': 'Rental Agreement', 'srv2-d': 'Legal document for temporary use of movable or immovable property',
+    'srv3': 'Purchase Agreement', 'srv3-d': 'Property sale contract with all necessary terms and conditions',
+    'srv4': 'Service Agreement', 'srv4-d': 'For any type of service — with clear obligations and defined responsibilities',
+    'srv5': 'Debt Acknowledgement', 'srv5-d': 'Legally establishes the existence of a debt and ensures repayment mechanisms',
+    'srv6': 'Debt Transfer Agreement', 'srv6-d': 'Legal form for transferring debt to a third party, properly executed',
+    'srv7': 'Employment Contract', 'srv7-d': 'Legal regulation of the relationship between employer and employee',
+    'srv-construction': 'Construction Contract', 'srv-construction-d': 'Legal document for construction works with full description of obligations of both parties',
+    'srv8': 'Corporate Documentation', 'srv8-d': 'Articles of association, internal regulations, by-laws and orders',
+    'srv9': 'Insurance Product Selection', 'srv9-d': 'For property and/or health insurance — we will find the optimal insurer with the right products for you',
+    'srv10': 'Administrative Complaints', 'srv10-d': 'Challenging unlawful fines, parking penalties, contesting fault in traffic accidents',
+    'srv11': 'Consumer Rights', 'srv11-d': 'Against retail businesses, unlawful charges, legally returning goods',
+    'srv12': 'Private Companies', 'srv12-d': 'Disputes with electricity, water, gas and internet service providers',
+    'srv13': 'Consumer Interest Protection', 'srv13-d': 'In accordance with warranty conditions — your rights fully protected',
+    'srv-extra': 'Beyond these services, we can assist you with many other matters. <strong style="color:var(--gold-light);">Just ask.</strong>',
+    'srv-note': 'All contracts are prepared in full compliance with <strong>current legislation</strong> and <strong>latest amendments</strong>, tailored to your specific needs.',
+    'sec2-label': '⚖️ Complaints', 'sec2-title': 'Complaint Preparation',
+    'sec2-sub': 'We act on your behalf — prepare the complaint, write instructions, and submit it if needed',
+    'c1': 'Administrative Complaints', 'c1-1': 'Challenging unlawful fines (Police, City Hall)', 'c1-2': 'Parking fines', 'c1-3': 'Contesting fault in traffic accidents',
+    'c2': 'Consumer Rights', 'c2-1': 'Against retail businesses', 'c2-2': 'Unlawful charges', 'c2-3': 'Legally returning goods',
+    'c3': 'Private Companies', 'c3-last': 'Tbilisi Energy and others',
+    'consult-title': 'Legal Consultation', 'consult-desc': 'We offer practical legal consultation — plan your next steps correctly and avoid unnecessary risks',
+    'sec3-label': '⚡ Process', 'sec3-title': 'How We Work', 'sec3-sub': 'A real person always handles your case — no chatbot, no AI will ever answer you here',
+    'h1t': 'Trust us with it', 'h1d': 'Share your information via email, phone or website chat',
+    'h2t': 'Our team listens', 'h2d': 'Directly with a human — no bots involved',
+    'h3t': 'Lawyer prepares the document', 'h3d': 'A proper document in full compliance with the law',
+    'h4t': 'Receive your document', 'h4d': 'After payment, your document is sent via email or any social platform',
+    'cont-title': 'Contact Us', 'cont-p': 'Send your information via your preferred method — our specialist will get back to you quickly.',
+    'm1': 'Email', 'm2': 'Phone', 'm3': 'Website Chat', 'm3-d': 'Quick communication with a real person',
+    'form-title': 'Make a Request', 'form-sub': 'Fill out the form — we will respond shortly',
+    'f1': 'Full Name', 'f2': 'Phone or Email', 'f3': 'Service Type', 'f4': 'Brief Description', 'f-btn': 'Send →',
+    'fopt0': '— Select —',
+    'fgrp1': 'Contracts', 'fgrp2': 'Corporate Services', 'fgrp3': 'Complaints',
+    'fopt1': 'Lease Agreement', 'fopt2': 'Rental Agreement', 'fopt3': 'Purchase Agreement', 'fopt4': 'Service Agreement',
+    'fopt5': 'Debt Acknowledgement', 'fopt5b': 'Debt Transfer', 'fopt6': 'Employment Contract',
+    'fopt-construction': 'Construction Contract',
+    'fopt9': 'Corporate Documentation', 'fopt10': 'Insurance Product Selection',
+    'fopt7': 'Administrative Complaint', 'fopt7b': 'Consumer Rights Protection', 'fopt7c': 'Complaint Against Private Company', 'fopt7d': 'Warranty Conditions',
+    'fopt8': 'Consultation (free)',
+    'foot': 'All rights reserved', 'chat-tip': 'Chat with us',
+    'hours-label': 'Working hours:', 'hours-days': 'Every day',
+    'social-label': 'Find us on social media',
+    'expand-open': '▴ Close', 'expand-close': '▾ Details',
+    'price-label': '💰 Pricing', 'price-title': 'Pricing',
+    'price-from': ' from', 'price-popular': 'Most popular',
+    'price-p1-title': 'Simple contract', 'price-p1-desc': 'Standard terms, fast turnaround',
+    'price-p2-title': 'Medium complexity contract', 'price-p2-desc': 'Custom terms, detailed preparation',
+    'price-p3-title': 'Complex contract', 'price-p3-desc': 'Complex structure, full legal protection',
+    'price-p4-title': 'Complaint', 'price-p4-desc': 'Administrative and private complaints',
+    'price-p5-title': 'Corporate documentation', 'price-p5-desc': 'Articles of association, regulations, by-laws and orders',
+    'price-p6-title': 'Insurance product selection',
+    'price-legal': 'For legal entities', 'price-physical': 'For individuals',
+    'price-consult-title': 'Initial consultation — <span style="color:var(--sage);">free</span>',
+    'price-consult-desc': 'We listen. Tell us what\'s happening — we\'ll take care of the rest.',
+    'price-consult-btn': 'Book a consultation →'
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+
+<script>
+function toggleExpand(card) {
+  card.classList.toggle('open');
+  const arrow = card.querySelector('.expand-arrow');
+  const lang = document.documentElement.lang || 'ka';
+  const t = translations[lang] || translations['ka'];
+  if (card.classList.contains('open')) {
+    arrow.textContent = t['expand-open'] || '▴ დახურვა';
+  } else {
+    arrow.textContent = t['expand-close'] || '▾ დეტალები';
+  }
+}
+</script>
+
+</body>
+</html>
