@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors({ origin: '*' }));
 app.use(express.json());
-
+app.use(express.static(__dirname));
 
 // ==========================================
 // კონფიგურაცია — შეავსეთ თქვენი მონაცემები
